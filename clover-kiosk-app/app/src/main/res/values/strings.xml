@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kumira</string>
+    
+    <!-- Kiosk Screen -->
+    <string name="kiosk_title">Kumira - Autoservicio</string>
+    <string name="kiosk_subtitle">Selecciona tus productos</string>
+    <string name="your_order">Tu Pedido</string>
+    <string name="cart_empty">Tu carrito está vacío</string>
+    <string name="cart_empty_hint">Agrega productos para comenzar</string>
+    <string name="clear_cart">Vaciar carrito</string>
+    
+    <!-- Categories -->
+    <string name="category_all">Todos</string>
+    <string name="category_hot_drinks">Bebidas Calientes</string>
+    <string name="category_cold_drinks">Bebidas Frías</string>
+    <string name="category_pastries">Pastelería</string>
+    <string name="category_sandwiches">Sándwiches</string>
+    
+    <!-- Order Summary -->
+    <string name="subtotal">Subtotal</string>
+    <string name="tax">Impuesto (8%)</string>
+    <string name="total">Total</string>
+    <string name="pay_button">Pagar %1$s</string>
+    
+    <!-- Dialogs -->
+    <string name="order_complete_title">¡Pedido Completado!</string>
+    <string name="order_complete_message">Gracias por tu compra. Tu pedido ha sido procesado exitosamente.</string>
+    <string name="start_new_order">Nuevo Pedido</string>
+    <string name="error_title">Error</string>
+    <string name="ok">Aceptar</string>
+    
+    <!-- Product Card -->
+    <string name="add_to_cart">Agregar</string>
+    <string name="out_of_stock">Agotado</string>
+    
+    <!-- Payment -->
+    <string name="processing_payment">Procesando pago…</string>
+    <string name="payment_failed">Error en el pago</string>
+    <string name="payment_cancelled">Pago cancelado</string>
+</resources>
