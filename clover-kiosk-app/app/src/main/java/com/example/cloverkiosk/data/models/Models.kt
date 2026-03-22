@@ -1,4 +1,4 @@
-package com.example.cloverkiosk.data.models
+package com.kumira.kiosk.data.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

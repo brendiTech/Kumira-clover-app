@@ -1,4 +1,4 @@
-package com.example.cloverkiosk
+package com.kumira.kiosk
 
 import android.os.Bundle
 import android.util.Log
@@ -13,13 +13,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.clover.sdk.v3.remotepay.*
-import com.example.cloverkiosk.clover.BasePaymentConnectorListener
-import com.example.cloverkiosk.clover.CloverPaymentHelper
-import com.example.cloverkiosk.ui.screens.KioskScreen
-import com.example.cloverkiosk.ui.screens.LoginScreen
-import com.example.cloverkiosk.ui.theme.CloverKioskTheme
-import com.example.cloverkiosk.ui.viewmodel.AuthViewModel
-import com.example.cloverkiosk.ui.viewmodel.KioskViewModel
+import com.kumira.kiosk.clover.BasePaymentConnectorListener
+import com.kumira.kiosk.clover.CloverPaymentHelper
+import com.kumira.kiosk.ui.screens.KioskScreen
+import com.kumira.kiosk.ui.screens.LoginScreen
+import com.kumira.kiosk.ui.theme.CloverKioskTheme
+import com.kumira.kiosk.ui.viewmodel.AuthViewModel
+import com.kumira.kiosk.ui.viewmodel.KioskViewModel
 import java.util.UUID
 
 class MainActivity : ComponentActivity() {
@@ -34,17 +34,7 @@ class MainActivity : ComponentActivity() {
     
     private val paymentListener = object : BasePaymentConnectorListener() {
         
-        override fun onDeviceReady(merchantInfo: MerchantInfo?) {
-            super.onDeviceReady(merchantInfo)
-            Log.d(TAG, "Dispositivo Clover listo: ${merchantInfo?.merchantName}")
-            runOnUiThread {
-                Toast.makeText(
-                    this@MainActivity,
-                    "Conectado a Clover",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
+
         
         override fun onSaleResponse(response: SaleResponse?) {
             super.onSaleResponse(response)
@@ -73,16 +63,7 @@ class MainActivity : ComponentActivity() {
             }
         }
         
-        override fun onDeviceError(event: CloverDeviceErrorEvent?) {
-            super.onDeviceError(event)
-            runOnUiThread {
-                Toast.makeText(
-                    this@MainActivity,
-                    "Error del dispositivo: ${event?.message}",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-        }
+
     }
     
     override fun onCreate(savedInstanceState: Bundle?) {

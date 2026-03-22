@@ -1,1 +1,11 @@
 /node_modules
+.env
+/shelf/
+/workspace.xml
+clover-kiosk-app/.gradle/
+.gradle/
+build/
+app/build/
+*.dex
+.idea/
+local.properties

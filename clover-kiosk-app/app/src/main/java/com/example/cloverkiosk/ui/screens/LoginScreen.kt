@@ -1,4 +1,4 @@
-package com.example.cloverkiosk.ui.screens
+package com.kumira.kiosk.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -14,7 +14,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.cloverkiosk.ui.viewmodel.AuthState
+import com.kumira.kiosk.ui.viewmodel.AuthState
 
 @Composable
 fun LoginScreen(

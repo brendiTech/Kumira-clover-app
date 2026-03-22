@@ -1,4 +1,4 @@
-package com.example.cloverkiosk.ui.components
+package com.kumira.kiosk.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.cloverkiosk.data.models.Product
+import com.kumira.kiosk.data.models.Product
 import java.text.NumberFormat
 import java.util.*
 

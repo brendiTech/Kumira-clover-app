@@ -1,4 +1,4 @@
-package com.example.cloverkiosk.ui.components
+package com.kumira.kiosk.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.cloverkiosk.data.models.CartItem
+import com.kumira.kiosk.data.models.CartItem
 import java.text.NumberFormat
 import java.util.*
 

@@ -1,10 +1,10 @@
-package com.example.cloverkiosk.data.repository
+package com.kumira.kiosk.data.repository
 
-import com.example.cloverkiosk.data.models.CartItem
-import com.example.cloverkiosk.data.models.Order
-import com.example.cloverkiosk.data.models.OrderItem
-import com.example.cloverkiosk.data.models.Product
-import com.example.cloverkiosk.data.remote.SupabaseClientProvider
+import com.kumira.kiosk.data.models.CartItem
+import com.kumira.kiosk.data.models.Order
+import com.kumira.kiosk.data.models.OrderItem
+import com.kumira.kiosk.data.models.Product
+import com.kumira.kiosk.data.remote.SupabaseClientProvider
 import io.github.jan.supabase.postgrest.postgrest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

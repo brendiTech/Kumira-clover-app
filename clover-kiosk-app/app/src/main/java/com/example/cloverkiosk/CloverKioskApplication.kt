@@ -1,4 +1,4 @@
-package com.example.cloverkiosk
+package com.kumira.kiosk
 
 import android.app.Application
 

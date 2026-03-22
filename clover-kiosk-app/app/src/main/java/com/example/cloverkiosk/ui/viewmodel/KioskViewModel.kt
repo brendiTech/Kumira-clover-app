@@ -1,10 +1,10 @@
-package com.example.cloverkiosk.ui.viewmodel
+package com.kumira.kiosk.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cloverkiosk.data.models.CartItem
-import com.example.cloverkiosk.data.models.Product
-import com.example.cloverkiosk.data.repository.KioskRepository
+import com.kumira.kiosk.data.models.CartItem
+import com.kumira.kiosk.data.models.Product
+import com.kumira.kiosk.data.repository.KioskRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

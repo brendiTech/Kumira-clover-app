@@ -1,10 +1,10 @@
-package com.example.cloverkiosk.ui.viewmodel
+package com.kumira.kiosk.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cloverkiosk.data.local.MerchantSession
-import com.example.cloverkiosk.data.remote.SupabaseClientProvider
+import com.kumira.kiosk.data.local.MerchantSession
+import com.kumira.kiosk.data.remote.SupabaseClientProvider
 import io.github.jan.supabase.auth.auth
 import io.github.jan.supabase.auth.providers.builtin.Email
 import io.github.jan.supabase.postgrest.postgrest

@@ -1,4 +1,4 @@
-package com.example.cloverkiosk.data.local
+package com.kumira.kiosk.data.local
 
 import android.content.Context
 import android.content.SharedPreferences

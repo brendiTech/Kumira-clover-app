@@ -1,4 +1,4 @@
-package com.example.cloverkiosk.ui.screens
+package com.kumira.kiosk.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -21,10 +21,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.cloverkiosk.ui.components.CartItemRow
-import com.example.cloverkiosk.ui.components.CategoryTabs
-import com.example.cloverkiosk.ui.components.ProductCard
-import com.example.cloverkiosk.ui.viewmodel.KioskViewModel
+import com.kumira.kiosk.ui.components.CartItemRow
+import com.kumira.kiosk.ui.components.CategoryTabs
+import com.kumira.kiosk.ui.components.ProductCard
+import com.kumira.kiosk.ui.viewmodel.KioskViewModel
 import java.text.NumberFormat
 import java.util.*
 

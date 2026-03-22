@@ -1,4 +1,4 @@
-package com.example.cloverkiosk.ui.components
+package com.kumira.kiosk.ui.components
 
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*

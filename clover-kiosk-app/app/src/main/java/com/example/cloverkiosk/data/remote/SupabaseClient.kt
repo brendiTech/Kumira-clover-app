@@ -1,6 +1,6 @@
-package com.example.cloverkiosk.data.remote
+package com.kumira.kiosk.data.remote
 
-import com.example.cloverkiosk.BuildConfig
+import com.kumira.kiosk.BuildConfig
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.auth.Auth
 import io.github.jan.supabase.createSupabaseClient

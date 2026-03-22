@@ -1,4 +1,4 @@
-package com.example.cloverkiosk.clover
+package com.kumira.kiosk.clover
 
 import android.content.Context
 import android.os.IInterface
@@ -81,7 +81,7 @@ class CloverPaymentHelper(private val context: Context) {
      * Cancel the current transaction.
      */
     fun cancelTransaction() {
-        paymentConnector?.cancel()
+        // paymentConnector?.cancel() — method not available in SDK 262.2
     }
     
     /**
@@ -104,7 +104,7 @@ class CloverPaymentHelper(private val context: Context) {
  * Base implementation of payment connector listener.
  * Extend this class and override methods as needed.
  */
-open class BasePaymentConnectorListener : IPaymentConnectorListener {
+abstract class BasePaymentConnectorListener : IPaymentConnectorListener {
     
     companion object {
         private const val TAG = "PaymentListener"
@@ -113,168 +113,76 @@ open class BasePaymentConnectorListener : IPaymentConnectorListener {
     override fun onDeviceConnected() {
         Log.d(TAG, "Device connected")
     }
-    
+
     override fun onDeviceDisconnected() {
         Log.d(TAG, "Device disconnected")
     }
-    
-    override fun onDeviceReady(merchantInfo: MerchantInfo?) {
-        Log.d(TAG, "Device ready: ${merchantInfo?.merchantName}")
-    }
-    
+
     override fun onSaleResponse(response: SaleResponse?) {
-        response?.let {
-            if (it.success) {
-                Log.d(TAG, "Sale successful: ${it.payment?.id}")
-            } else {
-                Log.e(TAG, "Sale failed: ${it.reason} - ${it.message}")
-            }
-        }
+        Log.d(TAG, "Sale response received: ${response?.success}")
     }
-    
+
     override fun onAuthResponse(response: AuthResponse?) {
         Log.d(TAG, "Auth response received")
     }
-    
+
     override fun onPreAuthResponse(response: PreAuthResponse?) {
-        Log.d(TAG, "PreAuth response received")
+        Log.d(TAG, "Pre-auth response received")
     }
-    
+
     override fun onCapturePreAuthResponse(response: CapturePreAuthResponse?) {
-        Log.d(TAG, "Capture PreAuth response received")
+        Log.d(TAG, "Capture pre-auth response received")
     }
-    
+
     override fun onTipAdjustAuthResponse(response: TipAdjustAuthResponse?) {
-        Log.d(TAG, "Tip adjust response received")
+        Log.d(TAG, "Tip adjust auth response received")
     }
-    
+
     override fun onVoidPaymentResponse(response: VoidPaymentResponse?) {
         Log.d(TAG, "Void payment response received")
     }
-    
+
     override fun onRefundPaymentResponse(response: RefundPaymentResponse?) {
         Log.d(TAG, "Refund payment response received")
     }
-    
+
     override fun onManualRefundResponse(response: ManualRefundResponse?) {
         Log.d(TAG, "Manual refund response received")
     }
-    
+
     override fun onVaultCardResponse(response: VaultCardResponse?) {
         Log.d(TAG, "Vault card response received")
     }
-    
+
     override fun onReadCardDataResponse(response: ReadCardDataResponse?) {
         Log.d(TAG, "Read card data response received")
     }
-    
+
     override fun onCloseoutResponse(response: CloseoutResponse?) {
         Log.d(TAG, "Closeout response received")
     }
-    
+
     override fun onVerifySignatureRequest(request: VerifySignatureRequest?) {
         Log.d(TAG, "Verify signature request received")
     }
-    
+
     override fun onConfirmPaymentRequest(request: ConfirmPaymentRequest?) {
         Log.d(TAG, "Confirm payment request received")
     }
-    
+
     override fun onTipAdded(tip: TipAdded?) {
-        Log.d(TAG, "Tip added: ${tip?.tipAmount}")
+        Log.d(TAG, "Tip added")
     }
-    
-    override fun onDeviceActivityStart(event: CloverDeviceEvent?) {
-        Log.d(TAG, "Device activity start: ${event?.eventState}")
-    }
-    
-    override fun onDeviceActivityEnd(event: CloverDeviceEvent?) {
-        Log.d(TAG, "Device activity end: ${event?.eventState}")
-    }
-    
-    override fun onDeviceError(event: CloverDeviceErrorEvent?) {
-        Log.e(TAG, "Device error: ${event?.errorType} - ${event?.message}")
-    }
-    
+
     override fun onRetrievePendingPaymentsResponse(response: RetrievePendingPaymentsResponse?) {
         Log.d(TAG, "Retrieve pending payments response received")
     }
-    
+
     override fun onRetrievePaymentResponse(response: RetrievePaymentResponse?) {
         Log.d(TAG, "Retrieve payment response received")
     }
-    
-    override fun onPrintJobStatusResponse(response: PrintJobStatusResponse?) {
-        Log.d(TAG, "Print job status response received")
+
+    override fun onVoidPaymentRefundResponse(response: VoidPaymentRefundResponse?) {
+        Log.d(TAG, "Void payment refund response received")
     }
-    
-    override fun onRetrievePrintersResponse(response: RetrievePrintersResponse?) {
-        Log.d(TAG, "Retrieve printers response received")
-    }
-    
-    override fun onPrintManualRefundReceipt(request: PrintManualRefundReceiptMessage?) {
-        Log.d(TAG, "Print manual refund receipt request received")
-    }
-    
-    override fun onPrintManualRefundDeclineReceipt(request: PrintManualRefundDeclineReceiptMessage?) {
-        Log.d(TAG, "Print manual refund decline receipt request received")
-    }
-    
-    override fun onPrintPaymentReceipt(request: PrintPaymentReceiptMessage?) {
-        Log.d(TAG, "Print payment receipt request received")
-    }
-    
-    override fun onPrintPaymentDeclineReceipt(request: PrintPaymentDeclineReceiptMessage?) {
-        Log.d(TAG, "Print payment decline receipt request received")
-    }
-    
-    override fun onPrintPaymentMerchantCopyReceipt(request: PrintPaymentMerchantCopyReceiptMessage?) {
-        Log.d(TAG, "Print payment merchant copy receipt request received")
-    }
-    
-    override fun onPrintRefundPaymentReceipt(request: PrintRefundPaymentReceiptMessage?) {
-        Log.d(TAG, "Print refund payment receipt request received")
-    }
-    
-    override fun onCustomActivityResponse(response: CustomActivityResponse?) {
-        Log.d(TAG, "Custom activity response received")
-    }
-    
-    override fun onMessageFromActivity(response: MessageFromActivity?) {
-        Log.d(TAG, "Message from activity received")
-    }
-    
-    override fun onRetrieveDeviceStatusResponse(response: RetrieveDeviceStatusResponse?) {
-        Log.d(TAG, "Retrieve device status response received")
-    }
-    
-    override fun onResetDeviceResponse(response: ResetDeviceResponse?) {
-        Log.d(TAG, "Reset device response received")
-    }
-    
-    override fun onDisplayReceiptOptionsResponse(response: DisplayReceiptOptionsResponse?) {
-        Log.d(TAG, "Display receipt options response received")
-    }
-    
-    override fun onIncrementPreAuthResponse(response: IncrementPreAuthResponse?) {
-        Log.d(TAG, "Increment pre-auth response received")
-    }
-    
-    override fun onCustomerProvidedData(event: CustomerProvidedDataEvent?) {
-        Log.d(TAG, "Customer provided data event received")
-    }
-    
-    override fun onCheckBalanceResponse(response: CheckBalanceResponse?) {
-        Log.d(TAG, "Check balance response received")
-    }
-    
-    override fun onRequestTipResponse(response: TipResponse?) {
-        Log.d(TAG, "Request tip response received")
-    }
-    
-    override fun onSignatureCollected(response: SignatureResponse?) {
-        Log.d(TAG, "Signature collected")
-    }
-    
-    override fun asBinder(): android.os.IBinder? = null
 }
