@@ -9,3 +9,4 @@ app/build/
 *.dex
 .idea/
 local.properties
+.next

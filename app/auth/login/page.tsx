@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Link from "next/link"
 import { createClient } from "@/lib/supabase/client"
@@ -11,7 +11,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Coffee, Loader2 } from "lucide-react"
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const redirect = searchParams.get("redirect") || "/"
@@ -27,30 +27,21 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      console.log("[v0] Login attempt for:", email)
       const supabase = createClient()
-      
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      })
-
-      console.log("[v0] Login response:", { data: data?.user?.email, error: error?.message })
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password })
 
       if (error) {
-        setError(error.message === "Invalid login credentials" 
-          ? "Email o contraseña incorrectos" 
+        setError(error.message === "Invalid login credentials"
+          ? "Email o contraseña incorrectos"
           : error.message)
         setIsLoading(false)
         return
       }
 
       if (data?.user) {
-        console.log("[v0] Login successful, redirecting...")
         window.location.href = redirect
       }
     } catch (err) {
-      console.log("[v0] Login exception:", err)
       setError("Error de conexión. Por favor, intenta de nuevo.")
       setIsLoading(false)
     }
@@ -124,5 +115,13 @@ export default function LoginPage() {
         </form>
       </Card>
     </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Cargando...</div>}>
+      <LoginForm />
+    </Suspense>
   )
 }
